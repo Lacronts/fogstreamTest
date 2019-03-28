@@ -1,0 +1,32 @@
+.start_block {
+  .round_outside {
+    display: flex;
+    margin: auto;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    border: 3px solid grey;
+    .round_inside {
+      margin: auto;
+      width: 2em;
+      height: 2em;
+      border-radius: 50%;
+      background: #222;
+      &::after {
+        content: 'Старт';
+        position: relative;
+        left: 3em;
+        top: 5px;
+        color: grey;
+      }
+    }
+  }
+  .vertical_line {
+    margin: auto;
+    width: 1px;
+    height: 3em;
+    border-width: 0 3px 0 0;
+    border-style: solid;
+    border-color: grey;
+  }
+}

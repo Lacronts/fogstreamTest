@@ -1,0 +1,40 @@
+.add_step {
+  background: #eee;
+  padding-bottom: 1em;
+  .round_outside {
+    position: relative;
+    display: flex;
+    margin: auto;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    border: 3px solid grey;
+    .round_inside {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      border-radius: 50%;
+      &::after {
+        content: 'Добавить шаг';
+        position: absolute;
+        width: 4em;
+        display: block;
+        text-align: center;
+        left: 3em;
+        top: 0;
+        color: grey;
+      }
+    }
+  }
+  .vertical_line {
+    margin: auto;
+    transform: translateX(-1px);
+    width: 1px;
+    height: 3em;
+    border-width: 0 3px 0 0;
+    border-style: solid;
+    border-color: grey;
+  }
+}

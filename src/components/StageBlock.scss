@@ -1,0 +1,143 @@
+.stage_block {
+  position: relative;
+  padding: 2em;
+  background: #eee;
+  display: flex;
+  flex-direction: row;
+  .hide_stage {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      top:-3px;
+      left:-6px;
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+  }
+  .delete_item {
+    @extend .hide_stage;
+    left: auto;
+    right: 15px;
+    &::before {
+      top: -4px;
+      left: -8px;
+    }
+  }
+  .description_block {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1em;
+    flex: 0 0 46%;
+    color: #444;
+    .stage {
+      cursor: pointer;
+      z-index: 2;
+      background: #ddd;
+      flex: 0 0 auto;
+      padding: 1em;
+      border: 1px solid #fff;
+      border-radius: 2em;
+    }
+    .resp {
+      position: relative;
+      padding: 0.5em;
+      @extend .stage;
+      &::before {
+        content: 'Ответственный';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: grey;
+        font-size: 12px;
+      }
+    }
+    .time {
+      @extend .resp;
+      &::before {
+        content: 'Время';
+      }
+    }
+    .hr {
+      position: absolute;
+      width: 100%;
+      top: 35%;
+      z-index: -1;
+    }
+  }
+  .task_block {
+    @extend .description_block;
+    justify-content: flex-start;
+    flex: 0 0 54%;
+    .item {
+      z-index: 1;
+      position: relative;
+      flex: 0 0 20%;
+      .image {
+        position: relative;
+        display: flex;
+        background: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        img {
+          margin: auto;
+          width: 50%;
+        }
+      }
+      .hr {
+        position: absolute;
+        width: 100%;
+        top:32%;
+        z-index: -1;
+      }
+      &:last-child {
+        .hr {
+          display: none;
+        }
+      }
+    }
+    .name {
+      position: absolute;
+      width: 50px;
+      text-align: center;
+      padding-top: 2px;
+      font: {
+        size: 12px;
+        weight: bold;
+      }
+    }
+  }
+}
+
+.steps_block {
+  @extend .stage_block;
+  .description_block {
+    .stage {
+      background: #fff;
+    }
+  }
+  .task_block {
+    .item:first-child {
+      .vertical_line {
+        position: absolute;
+        left: 22px;;
+        top: -1.5em;
+        height: 1.5em;
+        border-width: 0 0 0 3px;
+        border-style: solid;
+        border-color: #fff;
+      }
+    }
+  }
+}
